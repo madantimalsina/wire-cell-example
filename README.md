@@ -54,6 +54,19 @@ sbatch run_lar_for_fom.baseline.outer.sh /global/cfs/cdirs/m5170/data/fom_inputs
 
 After the scripts have been run, three new directories should exist: `output`, `logs`, and `timing`. The `timing` directory contains one subdirectory per ProtoDUNE input file. Each process writes a `foo.time` file containing one line per run, with peak CPU usage, peak memory usage, and wall time. This last quantity serves as our FOM.
 
+## Figure of Merit (FOM)
+
+**Definition:** FOM = node-hours / total events processed
+
+**Setup:** 64 processes × 3 runs × 18 events/file = **3,456 events/job**
+
+| File Type | Job ID   | Node-hours | FOM (node-hrs/event) |
+|-----------|----------|------------|----------------------|
+| Beam      | 51957752 | 4.41       | 0.00128              |
+| Cosmics   | 51957753 | 4.35       | 0.00126              |
+
+**Overall FOM: ~0.00127 GPU-node-hours/event**
+
 
 ### Running interactively
 
